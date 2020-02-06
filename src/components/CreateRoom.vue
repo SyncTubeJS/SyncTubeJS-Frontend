@@ -2,7 +2,7 @@
   <div>
       <form ref="form" v-on:submit.prevent="createRoom()">
             <input type="text" ref="name" placeholder="Enter Room Name">
-            <button>Create Room</button>
+            <button>Submit</button>
       </form>
        
   </div>
@@ -10,21 +10,22 @@
 
 <script>
 import { mapState } from 'vuex'
+import slugify from 'slugify'
+
 export default {
     computed: mapState([
         'rooms'
     ]),
     methods: {
        createRoom() {
-          let roomsArray = this.rooms
-          let roomName = this.$refs.name.value
+          let roomName = slugify(this.$refs.name.value, '-');
           
-          //This checks if Room name isnt blank and checks if room is already in state rooms
-           if(this.$refs.name.value.length > 0 && !roomsArray.includes(roomName)) {
-               this.$socket.emit('create_room', roomName);
-           } else {
-               alert('Please Enter a Name')
-           }
+          this.$router.push({
+                name: 'channel',
+                params: { 
+                    channelSlug: roomName 
+                }
+          })
        }
     }
 }
