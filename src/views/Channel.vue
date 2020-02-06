@@ -1,6 +1,7 @@
 <template>
   <div class="channel">
     <h1>Channel Page</h1>
+    <div id="player"></div>
   </div>
 </template>
 
@@ -21,6 +22,12 @@ export default {
     if(roomName) {
       this.$socket.emit('join_create_room', roomName)
     }
+
+    // Adding YouTube API boilerplate for future use
+    // Disgusting code
+    // let youtubeScript = document.createElement('script')
+    // youtubeScript.setAttribute('src', 'https://www.youtube.com/iframe_api')
+    // document.head.appendChild(youtubeScript)
   }
 }
 </script>
