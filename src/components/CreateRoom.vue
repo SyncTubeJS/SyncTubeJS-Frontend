@@ -18,14 +18,14 @@ export default {
     ]),
     methods: {
        createRoom() {
-          let roomName = slugify(this.$refs.name.value, '-');
-          
-          this.$router.push({
+            let roomName = slugify(this.$refs.name.value, '-');
+            
+            this.$router.push({
                 name: 'channel',
                 params: { 
                     channelSlug: roomName 
                 }
-          })
+            })
        }
     }
 }
