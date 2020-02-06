@@ -35,14 +35,13 @@ export default {
 		sendMessage() {
 			let message = this.message
 			if(message.length >= 1) {
-				console.log(message)
+				this.$socket.emit('new_message',{
+					message: message,
+					username: this.username,
+					room: this.room
+				});
 			}
 			
-			this.$socket.emit('new_message',{
-				message: message,
-				username: this.username,
-				room: this.room
-			});
 			this.message = ''
 		}
 	}
