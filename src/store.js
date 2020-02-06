@@ -26,7 +26,10 @@ export default new Vuex.Store({
     CLEAR_CHATLOG(state){
       console.log('Client side chatlog cleared!')
       state.chatlog = []
-    }
+	},
+	UPDATE_USERNAME(state, data) {
+		state.username = data
+	}
   },
   actions: {
     SOCKET_addRoomAction(context, data) {
@@ -34,6 +37,10 @@ export default new Vuex.Store({
     },
     SOCKET_addNewMessage(context, data) {
       context.commit('PUSH_MESSAGE', data)
-    }
+	},
+	updateUserName(context, data) {
+		console.log(data)
+		context.commit('UPDATE_USERNAME', data)
+	}
   }
 })
