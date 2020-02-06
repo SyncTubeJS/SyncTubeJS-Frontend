@@ -2,7 +2,7 @@
   <div>
 		<div class="chats-container">
 			<ul>
-				<li v-for="(message, index) in chatlog" v-bind:key="index">
+				<li :class="message.type" v-for="(message, index) in chatlog" v-bind:key="index">
 					message: {{message.message }}
 					name: {{ message.username }}
 				</li>
@@ -28,7 +28,7 @@ export default {
 	},
 	computed: {
 		...mapState([
-			'username', 'chatlog'
+			'username', 'chatlog', 'room'
 		])
 	},
 	methods: {
@@ -40,8 +40,8 @@ export default {
 			
 			this.$socket.emit('new_message',{
 				message: message,
-				username: this.username
-
+				username: this.username,
+				room: this.room
 			});
 			this.message = ''
 		}

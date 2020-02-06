@@ -2,17 +2,17 @@
   <div class="channel">
     <h1>Channel Page</h1>
     <div id="player"></div>
-	<chat />
+	  <Chat />
   </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
-import chat from '../components/ChatContainer'
+import Chat from '../components/ChatContainer'
 
 export default {
 	components: {
-		chat
+		Chat
 	},
   methods: {
     ...mapMutations([

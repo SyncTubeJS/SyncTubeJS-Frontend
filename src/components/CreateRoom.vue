@@ -14,12 +14,11 @@ import slugify from 'slugify'
 
 
 export default {
-	
     computed: mapState([
-        'rooms'
+        'room'
     ]),
     methods: {
-       createRoom() {
+        createRoom() {
             let roomName = slugify(this.$refs.name.value, '-');
             
             this.$router.push({
@@ -28,7 +27,7 @@ export default {
                     channelSlug: roomName 
                 }
             })
-       }
+        }
     }
 }
 </script>
