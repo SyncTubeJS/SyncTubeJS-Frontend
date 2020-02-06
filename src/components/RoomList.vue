@@ -1,10 +1,6 @@
 <template>
   <div>
-      <ul>
-          <li v-for="room in rooms" v-bind:key=room>
-              {{ room }}
-          </li>
-      </ul>
+        {{ rooms }}
   </div>
 </template>
 
