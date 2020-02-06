@@ -19,7 +19,9 @@ export default new Vuex.Store({
     PUSH_MESSAGE(state, data){
       state.chatlog = [...chatlog, data]
     },
-    CLEAR_CHATLOG(state, data){
+    // Clear chatlog
+    CLEAR_CHATLOG(state){
+      console.log('Client side chatlog cleared!')
       state.chatlog = []
     }
   },
