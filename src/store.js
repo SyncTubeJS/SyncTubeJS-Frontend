@@ -5,12 +5,19 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-
+    rooms: []
   },
   mutations: {
-
+    ADD_ROOM(state, data) {
+      if(!state.rooms.includes(data)) {
+        state.rooms = [...state.rooms, data]
+      }
+      console.log(state.rooms)
+    }
   },
   actions: {
-
+    SOCKET_addRoomAction(context, data) {
+      context.commit('ADD_ROOM', data)
+    }
   }
 })
