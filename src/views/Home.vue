@@ -1,15 +1,17 @@
 <template>
   <div class="home">
     <button @click="clickButton()">Test Connection</button>
+    <createRoom />
   </div>
 </template>
 
 <script>
+import createRoom from '../components/CreateRoom'
 export default {
-  name: 'home',
   components: {
-
+    createRoom
   },
+  name: 'home',
   sockets: {
     connect() {
       console.log('socket connected')
