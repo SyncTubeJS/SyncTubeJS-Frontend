@@ -2,14 +2,16 @@
   <div class="home">
     <button @click="clickButton()">Test Connection</button>
     <createRoom />
+    <roomList />
   </div>
 </template>
 
 <script>
 import createRoom from '../components/CreateRoom'
+import RoomList from '../components/RoomList'
 export default {
   components: {
-    createRoom
+    createRoom, RoomList
   },
   name: 'home',
   sockets: {

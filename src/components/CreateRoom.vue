@@ -9,12 +9,22 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-    
+    computed: mapState([
+        'rooms'
+    ]),
     methods: {
        createRoom() {
-           console.log(this.$refs.name.value)
-           this.$socket.emit('create_room', this.$refs.name.value);
+          let roomsArray = this.rooms
+          let roomName = this.$refs.name.value
+          
+          //This checks if Room name isnt blank and checks if room is already in state rooms
+           if(this.$refs.name.value.length > 0 && !roomsArray.includes(roomName)) {
+               this.$socket.emit('create_room', roomName);
+           } else {
+               alert('Please Enter a Name')
+           }
        }
     }
 }
