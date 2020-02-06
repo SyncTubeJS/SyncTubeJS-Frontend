@@ -12,7 +12,9 @@
 import { mapState } from 'vuex'
 import slugify from 'slugify'
 
+
 export default {
+	
     computed: mapState([
         'rooms'
     ]),

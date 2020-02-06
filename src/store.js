@@ -5,9 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    username: "",
+    username: "Anonymous",
     rooms: "",
-    chatlog: []
+    chatlog: [
+		//is an array of objects that contain
+		// username, message, type of message
+	]
   },
   mutations: {
     ADD_ROOM(state, data) {
@@ -17,7 +20,7 @@ export default new Vuex.Store({
       state.rooms = data
     },
     PUSH_MESSAGE(state, data){
-      state.chatlog = [...chatlog, data]
+      state.chatlog = [...state.chatlog, data]
     },
     // Clear chatlog
     CLEAR_CHATLOG(state){
@@ -28,6 +31,9 @@ export default new Vuex.Store({
   actions: {
     SOCKET_addRoomAction(context, data) {
       context.commit('ADD_ROOM', data)
-    }
+	},
+	SOCKET_addNewMessage(context, data) {
+		context.commit('PUSH_MESSAGE', data)
+	}
   }
 })

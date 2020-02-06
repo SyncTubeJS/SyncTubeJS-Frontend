@@ -2,12 +2,18 @@
   <div class="channel">
     <h1>Channel Page</h1>
     <div id="player"></div>
+	<chat />
   </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
+import chat from '../components/ChatContainer'
+
 export default {
+	components: {
+		chat
+	},
   methods: {
     ...mapMutations([
       'CLEAR_CHATLOG'
