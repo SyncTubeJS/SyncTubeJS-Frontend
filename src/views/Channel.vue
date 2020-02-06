@@ -7,14 +7,11 @@
 <script>
 export default {
   mounted(){
-    console.log(this.$route)
-
+    // Grab the route slug and join a channel on Channel view mount
     let roomName = this.$route.params.channelSlug
 
     if(roomName) {
-        this.$socket.emit('create_room', roomName);
-    } else {
-        alert('Please Enter a Name')
+      this.$socket.emit('join_create_room', roomName)
     }
   }
 }
